@@ -1,6 +1,4 @@
-var fs = require('fs'),
-  path = require('path'),
-  _ = require('underscore');
+var fs = require('fs'), path = require('path'), _ = require('underscore');
 
 var filePath = path.join(__dirname, 'youku-template.ejs');
 
@@ -11,10 +9,9 @@ function youkuMaps(args)
   // Output into 
   return _.template(template)({
     id: args[0],
-    class: (args[1] || 'youku') + 'video-container'
+    classname: args[1] || 'youku'
   });
 }
-
 
 hexo.extend.tag.register('youku', youkuMaps, {
   async: true,
